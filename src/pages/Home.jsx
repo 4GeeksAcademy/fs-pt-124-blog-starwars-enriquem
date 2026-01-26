@@ -1,18 +1,17 @@
 import { useEffect, useState } from "react";
-import rigoImageUrl from "../assets/img/rigo-baby.jpg";
 import useGlobalReducer from "../hooks/useGlobalReducer.jsx";
 import { Card } from "../components/Card.jsx";
 
 export const Home = () => {
 
-	const { store, dispatch } = useGlobalReducer()
+	const { store, favoriteList, dispatch } = useGlobalReducer()
 	
 	
 	const getPeople = () => {
 		fetch("https://www.swapi.tech/api/people/")
 			.then((response) => response.json())
 			.then((data) => {
-				console.log(data);
+				//console.log(data);
 
 				dispatch({ type: 'get_people', payload: data.results })
 			})
@@ -23,7 +22,7 @@ export const Home = () => {
 		fetch("https://www.swapi.tech/api/planets/")
 			.then((response) => response.json())
 			.then((data) => {
-				console.log(data);
+				//console.log(data);
 
 				dispatch({ type: 'get_planets', payload: data.results })
 			})
@@ -34,7 +33,7 @@ export const Home = () => {
 		fetch("https://www.swapi.tech/api/vehicles/")
 			.then((response) => response.json())
 			.then((data) => {
-				console.log(data);
+				//console.log(data);
 
 				dispatch({ type: 'get_vehicles', payload: data.results })
 			})
@@ -51,7 +50,6 @@ export const Home = () => {
 	return (
 		<div className="container mt-5">
 			<div className="row">
-				<button onClick={() => console.log(store)}>Ver store</button>
 				<p className="display-1 my-5">Characters</p>
 				{
 					store.people?.map((item, index) => (

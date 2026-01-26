@@ -1,0 +1,16 @@
+.logo{
+    width: 8rem;
+    cursor: pointer;
+}
+
+*{
+    color: white;
+}
+
+body{
+    background: black;
+}
+
+.card-row{
+    height: 30rem;
+}
